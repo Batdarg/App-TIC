@@ -1,0 +1,6 @@
+.img-radio {
+  width: 120px; /* Personaliza el tamaño de las imágenes según sea necesario */
+  height: 120px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
