@@ -1,12 +1,12 @@
 $(document).ready(function () {
-  // Función para cargar los registros
-  function cargarRegistros() {
-    // URL del servidor que maneja la solicitud GET
-    var url = "http://localhost:5238/api/participantePorID?id=4"; // Reemplaza con la URL de tu servidor y el ID del registro
+  var urlParams = new URLSearchParams(window.location.search);
+  var participanteId = urlParams.get("id");
 
-    // Realizar la solicitud GET
+  function cargarRegistros() {
+    var url =
+      "http://localhost:5238/api/participantePorID?id=" + participanteId;
+
     $.get(url, function (data) {
-      // Llenar los campos del formulario con los datos obtenidos
       $("#nombreInput").val(data.nombre);
       $("#apellidosInput").val(data.apellidos);
       $("#emailInput").val(data.email);
@@ -29,33 +29,27 @@ $(document).ready(function () {
           opcion4RadioButton.checked = true;
           break;
       }
-      console.log(data);
     });
   }
 
   function actualizarRegistro() {
-    var url1 = "http://localhost:5238/api/actualizarParticipante?id=4"; // Reemplaza con la URL de tu servidor y el ID del registro
+    var url1 = "http://localhost:5238/api/actualizarParticipantes";
 
-    // Obtener datos del formulario
     var nombre = $("#nombreInput").val();
     var apellidos = $("#apellidosInput").val();
     var email = $("#emailInput").val();
     var twitter = $("#inputTwitter").val();
-    
-    // Obtener valor del radio button seleccionado
     var avatar = $("input[name='opcion']:checked").val();
 
-    // Construir objeto con los datos a actualizar
     var datosActualizar = {
+      idparticipante: participanteId,
       nombre: nombre,
       apellidos: apellidos,
       email: email,
       twitter: twitter,
-      avatar: avatar
+      avatar: avatar,
     };
-    console.log(datosActualizar);
 
-    // Realizar solicitud PUT
     $.ajax({
       url: url1,
       type: "PUT",
@@ -63,16 +57,21 @@ $(document).ready(function () {
       data: JSON.stringify(datosActualizar),
       success: function (response) {
         console.log("Registro actualizado con éxito:", response);
+        window.location.href = window.location.origin + window.location.pathname + "?id=" + participanteId;
       },
       error: function (error) {
         console.error("Error al actualizar el registro:", error);
-      }
+      },
     });
   }
-  
+
+  cargarRegistros();
+
   $("#actualizarRegistroBtn").on("click", function () {
     actualizarRegistro();
   });
-  // Llamada inicial para cargar los registros al cargar la página
-  cargarRegistros();
+
+  function regresar() {
+    window.location.href = "participantes.html"; // Reemplaza con la URL de la otra página
+    }
 });

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para realizar la solicitud GET
     async function fetchData() {
         try {
-            const response = await fetch('http://localhost:5190/api/participantes');
+            const response = await fetch('http://localhost:5238/api/participantes');
 
             if (!response.ok) {
                 throw new Error(`Error de la API: ${response.status}`);
@@ -27,7 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
+                    <a href="editar.html?id=${participante.idParticipante}">
                         ${hasAvatar ? `<img src="../img/avatar-${participante.avatar}.png" class="card-img-top" alt="${participante.nombre}">` : ''}
+                    </a>    
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

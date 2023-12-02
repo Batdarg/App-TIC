@@ -46,7 +46,7 @@
         <div class="row">
             <div class="col mx-auto">
                 <h2 class="text-center mt-4 mb-5">
-                    Registro de participantes.
+                    Editar participantes.
                 </h2>
             </div>
         </div>
@@ -103,15 +103,14 @@
                             </label>
                         </div>
                     </div>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input border-black" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            He leído y acepto los términos y condiciones de uso.
-                        </label>
-                    </div>
                     <br>
-                    <div>
-                        <button class="form-control btn btn-primary" onclick="submitForm()">Guardar</button>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-secondary" id="regresarBtn" onclick="regresar()">Regresar</button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-primary" id="actualizarRegistroBtn">Editar</button>
+                        </div>
                     </div>
                 </form>
             </div>
