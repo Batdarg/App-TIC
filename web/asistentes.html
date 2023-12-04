@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,
-        initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
-    <title>Inicio</title>
 </head>
 
 <body>
@@ -17,7 +15,7 @@
             <nav class="navbar navbar-expand-lg" style="background-color: #E60D14;">
                 <div class="container-fluid">
                     <a class="navbar-brand">
-                        <img src="../img/Logo_Nav_ITL.png" alt="Logo_ITL" width="80" height="80" />
+                        <img src="../img/Logo_Nav_TIC.png" alt="Logo_ITL" width="80" height="80" />
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -35,7 +33,7 @@
                             <a class="nav-item nav-link text-white" href="conferencias.html">CONFERENCIAS</a>
                         </div>
                         <a class="navbar-brand">
-                            <img src="../img/Logo_Nav_TIC.png" alt="Logo_TIC" width="80" height="80" />
+                            <img src="../img/Logo_Nav_ITL.png" alt="Logo_TIC" width="80" height="80" />
                         </a>
                     </div>
                 </div>
@@ -44,57 +42,35 @@
         <br />
         <div class="row">
             <div class="col mx-auto">
-                <h2 class="text-center mt-5 mb-5">
-                    Bienvenido al Congreso de Técnologias de la Información.
+                <h2 class="text-center mt-4 mb-3">
+                    Lista de participantes.
                 </h2>
             </div>
         </div>
-        <br />
-        <div class="row px-2 py-3">
-            <div class="col col-4">
-                <div class="fb-page" data-href="https://www.facebook.com/NuestrasTIC/" data-tabs="timeline"
-                    data-width="" data-height="" data-small-header="false" data-adapt-container-width="false"
-                    data-hide-cover="false" data-show-facepile="false">
-                    <blockquote cite="https://www.facebook.com/NuestrasTIC/" class="fb-xfbml-parse-ignore"><a
-                            href="https://www.facebook.com/NuestrasTIC/">Congreso Nacional Nuestras TIC</a></blockquote>
-                </div>
-            </div>
-            <div class="col col-8">
-                <div class="row px-2 py-3">
-                    <div class="col mx-auto">
-                        <h3 class="text-center mb-3">
-                            El evento académico que reune anualmente a los Docentes Apasionados por las TIC en el Aula
-                            de Clase de
-                            Colombia.
-                        </h3>
-                    </div>
-                </div>
-                <div class="row px-2 py-3">
-                    <div class="col-12 d-flex align-items-center justify-content-center">
-                        <img src="../img/1.jpg" class="w-75 rounded-5" />
-                    </div>
-                </div>
-                <div class="row px-2 py-3">
-                    <div class="col-12 d-flex align-items-center justify-content-center">
-                        <img src="../img/2.jpg" class="w-75 rounded-5" />
-                    </div>
-                </div>
+        <div class="row py-3">
+            <div class="col-9"></div>
+            <div class="col-3">
+                <a href="conferencias.html">
+                    <button class="form-control btn btn-secondary border-2 border-black">Regresar</button>
+                </a>
             </div>
         </div>
+        <div class="row border border-secondary rounded-5 px-2 py-3">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="container">
+                    <div class="row" id="cards-container"></div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
     </div>
-    </div>
-    </div>
-    </div>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"
-        nonce="cBGFY0Wf"></script>
 </body>
-
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"></script>
-<script src="script.js"></script>
+<script src="../js/asistentes.js"></script>
 
 </html>

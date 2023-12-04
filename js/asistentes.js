@@ -1,8 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Obtener el parámetro de la URL que contiene el ID de la conferencia
+    var urlParams = new URLSearchParams(window.location.search);
+    var conferenciaId = urlParams.get("id");
+    var fragmento = document.querySelector('.col h2');
+    fragmento.textContent = 'Lista de participantes: ' + urlParams.get("nombre");
     // Función para realizar la solicitud GET
     async function fetchData() {
         try {
-            const response = await fetch('http://localhost:5190/api/participantes');
+            const response = await fetch('http://localhost:5190/api/Registros/registrosPorConferencia?idConferecia='+conferenciaId);
 
             if (!response.ok) {
                 throw new Error(`Error de la API: ${response.status}`);
@@ -27,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="card mb-3 w-100 bg-danger border-4 border-black rounded-5">
                 <div class="row g-0">
                     <div class="col-md-4 px-4 py-4">
-                    <a href="editar.html?id=${participante.idParticipante}">
+                    <a>
                         ${hasAvatar ? `<img src="../img/avatar-${participante.avatar}.png" class="card-img-top" alt="${participante.nombre}">` : ''}
                     </a>    
                     </div>
@@ -54,3 +59,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // Llama a la función fetchData cuando se carga la página
     fetchData();
 });
+

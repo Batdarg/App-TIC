@@ -1,59 +1,35 @@
-const form = document.getElementById("buscarConferencia");
+$(document).ready(function () {
+    // Hacer la solicitud AJAX para obtener las conferencias
+    $.ajax({
+        url: 'http://localhost:5190/api/Conferencias/todasLasConferencias',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            // Llenar la tabla con los datos obtenidos
+            llenarTabla(data);
+        },
+        error: function (error) {
+            console.error('Error al obtener las conferencias:', error);
+        }
+    });
 
-form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const bookData = eventToBooksData(event);
-    const encodedBookData = encodeURIComponent(bookData);
-    console.log(encodedBookData);
+    // Función para llenar la tabla con los datos
+    function llenarTabla(conferencias) {
+        var tableBody = $('#table tbody');
 
-    const title = await fetch(`http://localhost:5181/api/Book?title=${encodedBookData}`);
-    const query = await title.json();
-    
-    deleteRows();
-    updateTableTitle(query);
-});
+        // Limpiar la tabla antes de llenarla para evitar duplicados
+        tableBody.empty();
 
-const eventToBooksData = (event) => {
-    const elements = event.target.elements;
-    return elements.book.value;
-}
-
-const updateTableTitle = (query) => {
-    drawTable(query);
-}
-
-const updateTable = () => {
-    queryBooksApi()
-        .then(books => drawTable(books));
-}
-
-const queryBooksApi = async () => {
-    const answer = await fetch("http://localhost:5190/api/Conferencias/todasLasConferencias");
-    return await answer.json();
-}
-
-const drawTable = (books) => {
-    books.forEach(addBookToTable);
-} 
-
-const addBookToTable = (book) => {
-    const dataBook = document.getElementById("table");
-    const row = dataBook.insertRow(-1);
-    const [cell1, cell2, cell3, cell4] = Array.from({ length: 4 }, () => row.insertCell());
-    
-    cell1.textContent = book.idConference;
-    cell2.textContent = book.horario;
-    cell3.textContent = book.nombre;
-    cell4.textContent = book.conferencista;
-
-}
-
-function deleteRows() {
-    const num = document.getElementById("table").rows.length;
-    for(i = 1; i< num; i++){
-        console.log(i);
-        document.getElementById("table").deleteRow(1);
+        // Iterar sobre las conferencias y agregarlas a la tabla
+        conferencias.forEach(function (conferencia, index) {
+            var row = '<tr>' +
+                '<th scope="row">' + (index + 1) + '</th>' +
+                '<td>' + conferencia.horario + '</td>' +
+                '<td><a href="asistentes.html?id=' + conferencia.idConference + '&nombre=' + conferencia.nombre + '">' + conferencia.nombre +'</a></td>' +
+                '<td>' + conferencia.conferencista + '</td>' +
+                '<td><a href="registroconferencia.html?id=' + conferencia.idConference + '"><button class="form-control btn btn-danger border-2 border-black">Registrarse</button></a></td>' +
+                '</tr>';
+            tableBody.append(row);
+        });
     }
-}
-
-document.addEventListener("DOMContentLoaded", updateTable);
+});

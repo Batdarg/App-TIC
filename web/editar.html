@@ -45,9 +45,17 @@
         <br />
         <div class="row">
             <div class="col mx-auto">
-                <h2 class="text-center mt-4 mb-5">
+                <h2 class="text-center mt-4 mb-3">
                     Editar participantes.
                 </h2>
+            </div>
+        </div>
+        <div class="row py-3">
+            <div class="col-9"></div>
+            <div class="col-3">
+                <a href="participantes.html">
+                    <button class="form-control btn btn-secondary border-2 border-black">Regresar</button>
+                </a>
             </div>
         </div>
         <div class="row border border-secondary rounded-5 px-2 py-3">
@@ -55,23 +63,23 @@
             <div class="col-6">
                 <form class="form-control border border-secondary rounded-4 px-5 py-5">
                     <div class="form-floating mb-4">
-                        <input type="text" class="form-control" id="nombreInput" name="nombreInput"
-                            placeholder="Nombre">
+                        <input type="text" class="form-control" id="nombreInput" name="nombreInput" placeholder="Nombre"
+                            required>
                         <label for="nombreInput">Nombre</label>
                     </div>
                     <div class="form-floating mb-4">
                         <input type="text" class="form-control" id="apellidosInput" name="apellidosInput"
-                            placeholder="Apellidos">
+                            placeholder="Apellidos" required>
                         <label for="apellidosInput">Apellidos</label>
                     </div>
                     <div class="form-floating mb-4">
                         <input type="email" class="form-control" id="emailInput" name="emailInput"
-                            placeholder="name@example.com">
+                            placeholder="name@example.com" required>
                         <label for="emailInput">Email</label>
                     </div>
                     <div class="input-group input-group-lg mb-4">
-                        <span class="input-group-text" id="Twitter">Twitter.com/</span>
-                        <input type="text" class="form-control" id="inputTwitter" name="inputTwitter">
+                        <span class="input-group-text" id="Twitter">Twitter.com/@</span>
+                        <input type="text" class="form-control" id="inputTwitter" name="inputTwitter" required>
                     </div>
                     <div class="row mb-4 py-3">
                         <div class="col-3 text-center">
@@ -106,10 +114,7 @@
                     <br>
                     <div class="row">
                         <div class="col">
-                            <button class="btn btn-secondary" id="regresarBtn" onclick="regresar()">Regresar</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-primary" id="actualizarRegistroBtn">Editar</button>
+                            <button class="form-control btn btn-danger" id="actualizarRegistroBtn">Editar</button>
                         </div>
                     </div>
                 </form>
